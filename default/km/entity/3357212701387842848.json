@@ -1,0 +1,21 @@
+{
+  "$id": "3357212701387842848",
+  "$schema": "https://schema.yext.com/config/km/entity/v1",
+  "primaryLocale": "en",
+  "content": {
+    "address": {
+      "city": "New York",
+      "countryCode": "US",
+      "line1": "61 9th Ave",
+      "postalCode": "10011",
+      "region": "NY"
+    },
+    "addressHidden": false,
+    "mainPhone": "+14138228010",
+    "name": "Test Burger King",
+    "timezone": "America/New_York"
+  },
+  "entityType": "location",
+  "folder": "yext/root",
+  "labels": []
+}

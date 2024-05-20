@@ -1,0 +1,191 @@
+{
+    "$id": "reviewContentGen",
+    "$schema": "https://schema.yext.com/config/km/connector/v5",
+    "displayName": "Review Content Gen",
+    "entityTypes": [
+      "location"
+    ],
+    "source": {
+      "sourceConfig": {
+        "apiPullConfig": {
+          "requestType": "GET",
+          "url": "https://sbx-api.yextapis.com/v2/accounts/me/reviews",
+          "authentication": {
+            "apiKey": {
+              "key": "api_key",
+              "value": "${{km/connector.reviewContentGen.api_key_value}}",
+              "setAsHeader": false
+            }
+          },
+          "paginationControl": {
+            "cursorPagination": {
+              "pageKey": "pageToken",
+              "cursor": "response.nextPageToken",
+              "cursorType": "TOKEN",
+              "detectCursorInHeader": false
+            }
+          },
+          "headers": {},
+          "queryParams": {
+            "status": "LIVE",
+            "v": "20240501"
+          },
+          "dataFormat": "JSON"
+        }
+      },
+      "baseSelector": {
+        "type": "JSON",
+        "header": "Entity Container",
+        "path": "response.reviews"
+      },
+      "selectors": [
+        {
+          "type": "JSON",
+          "header": "id",
+          "path": "id"
+        },
+        {
+          "type": "JSON",
+          "header": "rating",
+          "path": "rating"
+        },
+        {
+          "type": "JSON",
+          "header": "content",
+          "path": "content"
+        },
+        {
+          "type": "JSON",
+          "header": "authorName",
+          "path": "authorName"
+        },
+        {
+          "type": "JSON",
+          "header": "authorEmail",
+          "path": "authorEmail"
+        },
+        {
+          "type": "JSON",
+          "header": "url",
+          "path": "url"
+        },
+        {
+          "type": "JSON",
+          "header": "publisherDate",
+          "path": "publisherDate"
+        },
+        {
+          "type": "JSON",
+          "header": "locationId",
+          "path": "locationId"
+        },
+        {
+          "type": "JSON",
+          "header": "accountId",
+          "path": "accountId"
+        },
+        {
+          "type": "JSON",
+          "header": "publisherId",
+          "path": "publisherId"
+        },
+        {
+          "type": "JSON",
+          "header": "lastYextUpdateTime",
+          "path": "lastYextUpdateTime"
+        },
+        {
+          "type": "JSON",
+          "header": "comments",
+          "path": "comments"
+        },
+        {
+          "type": "JSON",
+          "header": "status",
+          "path": "status"
+        },
+        {
+          "type": "JSON",
+          "header": "reviewLabels[].id",
+          "path": "reviewLabels[].id"
+        },
+        {
+          "type": "JSON",
+          "header": "reviewLabels[].name",
+          "path": "reviewLabels[].name"
+        },
+        {
+          "type": "JSON",
+          "header": "externalId",
+          "path": "externalId"
+        },
+        {
+          "type": "JSON",
+          "header": "flagStatus",
+          "path": "flagStatus"
+        },
+        {
+          "type": "JSON",
+          "header": "reviewLanguage",
+          "path": "reviewLanguage"
+        },
+        {
+          "type": "JSON",
+          "header": "apiIdentifier",
+          "path": "apiIdentifier"
+        },
+        {
+          "type": "JSON",
+          "header": "comments[].id",
+          "path": "comments[].id"
+        },
+        {
+          "type": "JSON",
+          "header": "comments[].publisherDate",
+          "path": "comments[].publisherDate"
+        },
+        {
+          "type": "JSON",
+          "header": "comments[].authorRole",
+          "path": "comments[].authorRole"
+        },
+        {
+          "type": "JSON",
+          "header": "comments[].content",
+          "path": "comments[].content"
+        },
+        {
+          "type": "JSON",
+          "header": "comments[].visibility",
+          "path": "comments[].visibility"
+        },
+        {
+          "type": "JSON",
+          "header": "comments[].suppressReviewerContact",
+          "path": "comments[].suppressReviewerContact"
+        }
+      ]
+    },
+    "mappings": [
+      {
+        "header": "locationId",
+        "field": "entityId",
+        "subfieldPath": [],
+        "clearValueIfBlank": false
+      },
+      {
+        "header": "content",
+        "field": "c_reviewContent",
+        "fieldFormatConfig": {
+          "listDelimiter": "|"
+        },
+        "subfieldPath": [],
+        "clearValueIfBlank": false,
+        "listSettings": "ADD_TO_EXISTING"
+      }
+    ],
+    "comprehensiveModeConfig": {
+      "comprehensiveSet": "ENTITIES_CREATED_BY_THIS_CONNECTOR",
+      "actionOnMissingEntities": "DELETE"
+    }
+  }

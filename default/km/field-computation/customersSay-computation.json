@@ -1,0 +1,10 @@
+{
+    "$id": "c_customersSay-computation",
+    "$schema": "https://schema.yext.com/config/km/field-computation/v2",
+    "field": "c_customersSay",
+    "computationMethod": "customCompletion",
+    "automaticComputationsBehavior": "WRITE_DIRECTLY",
+    "inputs": {
+      "prompt": "Summarize all of the the content in [[c_reviewContent]].\n\nThese should always be generalized and start with \"customers say\". \n\nThis blurb should be roughly 3-4 senstences.\n\nA good example of a bullet is \"Customers like the color, appearance, and thickness of the shirt. For example, they mention that it comes in many colors, it\u0027s flattering, and it holds its stretch throughout the day. Some appreciate the thickness and comfort. Opinions are mixed on value.\""
+    }
+  }

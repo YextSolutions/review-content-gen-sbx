@@ -1,0 +1,13 @@
+{
+    "$id": "customersSay",
+    "$schema": "https://schema.yext.com/config/streams/streams-endpoint/v2",
+    "name": "Customers Say",
+    "stream": {
+      "source": "content",
+      "fields": [
+        "c_customersSay",
+        "name"
+      ],
+      "localization": {}
+    }
+  }
